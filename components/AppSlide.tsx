@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Shield, TrendingUp, Brain, CheckCircle, Sparkles, Search, Award, XCircle, ArrowRight } from 'lucide-react';
-import { Button } from './components/ui/button';
+import { Button } from './ui/button';
 
 const slides = [
   {
