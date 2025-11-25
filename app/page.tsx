@@ -4,16 +4,14 @@ import { useState } from "react";
 import {
     ChevronLeft,
     ChevronRight,
-    Shield,
-    TrendingUp,
-    Brain,
-    CheckCircle,
-    Sparkles,
     XCircle,
     ArrowRight,
     Award,
+    TrendingUp,
+    CheckCircle,
 } from "lucide-react";
-import { Button } from "../components/ui/button";
+import MainHero from "../components/MainHero"; // ⭐ intro 슬라이드 교체
+// Button은 다른 슬라이드에서는 안 씀
 
 const slides = [
     { id: 1, type: "intro", bgGradient: "from-blue-600 via-purple-700 to-indigo-800" },
@@ -24,71 +22,9 @@ const slides = [
 
 function SlideContent({ type }: { type: string }) {
     switch (type) {
+        // ⭐ intro는 MainHero로 완전 대체
         case "intro":
-            return (
-                <div className="min-h-screen flex items-center justify-center text-white px-12 py-16">
-                    <div className="grid md:grid-cols-2 gap-12 max-w-7xl w-full">
-                        <div className="flex flex-col items-center justify-center">
-                            <div className="mb-6 relative inline-block">
-                                <Shield className="w-32 h-32 animate-pulse" />
-                                <Sparkles className="w-12 h-12 absolute -top-2 -right-2 text-yellow-300" />
-                            </div>
-                            <h1 className="text-6xl mb-4">NEEDSFINE</h1>
-                            <p className="text-3xl mb-4">니즈파인</p>
-                            <div className="w-24 h-1 bg-white mb-6"></div>
-                            <p className="text-2xl text-center opacity-90">
-                                여러분과 함께하는<br />맛집 검증 시스템
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col justify-center space-y-10">
-                            <div>
-                                <h2 className="text-3xl mb-6 text-center">😤 이런 경험 있으신가요?</h2>
-                                <div className="space-y-3">
-                                    {[
-                                        ["⭐⭐⭐⭐⭐ \"최고예요!\"", "→ 가보니 실망..."],
-                                        ["🤖 사장님이 쓴 것 같은 리뷰", "→ 어뷰징 의심"],
-                                        ["📝 너무 짧거나 성의 없는 리뷰", "→ 신뢰도 제로"],
-                                    ].map(([title, desc], i) => (
-                                        <div
-                                            key={i}
-                                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 transform hover:scale-105 transition-transform"
-                                        >
-                                            <p className="text-lg mb-1">{title}</p>
-                                            <p className="opacity-75">{desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <p className="text-xl mt-6 text-center animate-pulse">
-                                    가짜 5점 리뷰의 시대는 끝났습니다
-                                </p>
-                            </div>
-
-                            <div>
-                                <div className="flex justify-center mb-4">
-                                    <Brain className="w-16 h-16 animate-bounce" />
-                                </div>
-                                <h2 className="text-3xl mb-4 text-center">니즈파인이 해결합니다</h2>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6">
-                                    {[
-                                        ["가짜 5점 리뷰", "걸러냄"],
-                                        ["어뷰징", "탐지"],
-                                        ["신뢰할 수 있는", "진짜 점수 제공"],
-                                    ].map(([h, d], i) => (
-                                        <div key={i} className="flex items-start gap-3 mb-3">
-                                            <CheckCircle className="w-6 h-6 flex-shrink-0 mt-1" />
-                                            <p>
-                                                <span className="text-yellow-300">{h}</span> {d}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
+            return <MainHero />;
 
         case "review-example":
             return (
@@ -110,15 +46,13 @@ function SlideContent({ type }: { type: string }) {
                                 </div>
 
                                 <div className="space-y-3 mb-6">
-                                    {[
-                                        ["리뷰 퀄리티", "짧고 성의 없음", "w-1/4"],
-                                        ["긍정 일치도", "태그 일치 없음", "w-1/5"],
-                                    ].map(([t, d, w], i) => (
+                                    {[["리뷰 퀄리티", "짧고 성의 없음", "w-1/4"],
+                                    ["긍정 일치도", "태그 일치 없음", "w-1/5"]].map(([t, d, w], i) => (
                                         <div key={i} className="bg-white/10 rounded-xl p-4">
                                             <p className="text-sm opacity-75 mb-1">{t}</p>
                                             <p className="text-lg">❌ {d}</p>
                                             <div className="w-full bg-white/20 rounded-full h-2 mt-2">
-                                                <div className={`bg-red-400 h-2 rounded-full ${w}`}></div>
+                                                <div className={`bg-red-400 h-2 rounded-full ${w}`} />
                                             </div>
                                         </div>
                                     ))}
@@ -142,21 +76,17 @@ function SlideContent({ type }: { type: string }) {
 
                                 <div className="bg-white/10 rounded-2xl p-6 mb-6">
                                     <p className="text-xl mb-3">⭐⭐⭐⭐ 4.0점</p>
-                                    <p className="text-lg opacity-90">
-                                        "분위기가 조용하고 아늑해서 좋았어요..."
-                                    </p>
+                                    <p className="text-lg opacity-90">"분위기가 조용하고 아늑해서 좋았어요..."</p>
                                 </div>
 
                                 <div className="space-y-3 mb-6">
-                                    {[
-                                        ["리뷰 퀄리티", "구체적이고 상세함", "w-4/5"],
-                                        ["긍정 일치도", "조용 / 맛있 / 친절", "w-5/6"],
-                                    ].map(([t, d, w], i) => (
+                                    {[["리뷰 퀄리티", "구체적이고 상세함", "w-4/5"],
+                                    ["긍정 일치도", "조용 / 맛있 / 친절", "w-5/6"]].map(([t, d, w], i) => (
                                         <div key={i} className="bg-white/10 rounded-xl p-4">
                                             <p className="text-sm opacity-75 mb-1">{t}</p>
                                             <p className="text-lg">✅ {d}</p>
                                             <div className="w-full bg-white/20 rounded-full h-2 mt-2">
-                                                <div className={`bg-green-400 h-2 rounded-full ${w}`}></div>
+                                                <div className={`bg-green-400 h-2 rounded-full ${w}`} />
                                             </div>
                                         </div>
                                     ))}
@@ -245,14 +175,13 @@ export default function App() {
                                     : "opacity-0 translate-x-full"
                             }`}
                     >
-                        <div
-                            className={`h-full w-full overflow-y-auto bg-gradient-to-br ${slide.bgGradient}`}
-                        >
+                        <div className={`h-full w-full overflow-y-auto bg-gradient-to-br ${slide.bgGradient}`}>
                             <SlideContent type={slide.type} />
                         </div>
                     </div>
                 ))}
 
+                {/* Prev */}
                 <button
                     onClick={prevSlide}
                     className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition"
@@ -260,6 +189,7 @@ export default function App() {
                     <ChevronLeft className="w-8 h-8" />
                 </button>
 
+                {/* Next */}
                 <button
                     onClick={nextSlide}
                     className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition"
@@ -267,6 +197,7 @@ export default function App() {
                     <ChevronRight className="w-8 h-8" />
                 </button>
 
+                {/* Dots */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
                     {slides.map((_, index) => (
                         <button
