@@ -1,47 +1,66 @@
 "use client";
 
-import Button from "@/components/Button";
+import { Sparkles, Shield, Search, TrendingUp } from "lucide-react";
+import { Button } from "./ui/button";
+import Image from "next/image";
 
 export default function MainHero() {
-    return (
-        <div className="w-full bg-white text-black">
-            {/* NAVIGATION */}
-            <nav className="w-full flex items-center justify-between px-6 md:px-12 py-5 border-b border-gray-200">
-                <h1 className="text-2xl font-semibold tracking-tight">NeedsFine</h1>
+  return (
+    <section className="relative flex flex-col items-center justify-center w-full min-h-[85vh] text-white overflow-hidden">
 
-                <div className="hidden md:flex gap-10 text-base font-medium">
-                    <a href="/store-join" className="hover:text-gray-600 transition">사장님 입점</a>
-                    <a href="/brand-story" className="hover:text-gray-600 transition">브랜드 스토리</a>
-                </div>
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-700 via-purple-700 to-blue-700 opacity-90" />
 
-                <Button
-                    onClick={() => (window.location.href = "/download")}
-                    className="bg-blue-500 text-white font-semibold hover:bg-blue-600 px-4 py-2 text-sm md:text-base"
-                >
-                    앱 다운로드
-                </Button>
-            </nav>
+      {/* Floating Orbs */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500/30 rounded-full blur-[100px]" />
 
-            {/* MAIN HERO SECTION */}
-            <section className="w-full flex flex-col items-start justify-center px-6 md:px-24 py-24 min-h-[60vh]">
-                <p className="text-lg md:text-2xl mb-3 text-gray-700">가짜 리뷰 없는 세상</p>
-
-                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-                    신뢰만 남기는<br className="hidden md:block" />
-                    맛집 검증 플랫폼
-                </h2>
-
-                <p className="text-base md:text-xl text-gray-500 mb-10 max-w-xl">
-                    후회 없는 선택. 어뷰징 없는 진짜 리뷰. 니즈파인이 검증해서 보여드립니다.
-                </p>
-
-                <Button
-                    onClick={() => (window.location.href = "/download")}
-                    className="bg-black text-white text-lg md:text-xl hover:bg-gray-800 px-10 py-4 rounded-lg"
-                >
-                    시작하기
-                </Button>
-            </section>
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl text-center px-6 mt-12">
+        <div className="flex justify-center mb-4">
+          <Shield className="w-20 h-20 text-yellow-300 animate-pulse drop-shadow-lg" />
         </div>
-    );
+
+        <h1 className="text-6xl font-bold tracking-tight mb-4 drop-shadow-lg">
+          NEEDSFINE
+        </h1>
+
+        <p className="text-2xl opacity-90 mb-6 leading-relaxed">
+          리뷰의 진짜 가치를 계산하는<br />
+          <span className="text-yellow-300 font-semibold">AI 신뢰도 분석 시스템</span>
+        </p>
+
+        <div className="flex justify-center gap-3 mb-10">
+          <span className="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm text-lg flex items-center gap-2">
+            <Sparkles className="w-5 h-5" />
+            가짜 리뷰 차단
+          </span>
+          <span className="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm text-lg flex items-center gap-2">
+            <Search className="w-5 h-5" />
+            정교한 분석
+          </span>
+          <span className="bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm text-lg flex items-center gap-2">
+            <TrendingUp className="w-5 h-5" />
+            신뢰도 기반 평점
+          </span>
+        </div>
+
+        <div className="flex justify-center gap-6 mt-4">
+          <Button className="bg-white text-indigo-700 hover:bg-gray-100 px-8 py-6 text-xl rounded-2xl shadow-lg">
+            시작하기
+          </Button>
+
+          <Button
+            variant="outline"
+            className="border-white text-white hover:bg-white/10 px-8 py-6 text-xl rounded-2xl shadow-lg"
+          >
+            기능 보기
+          </Button>
+        </div>
+      </div>
+
+      {/* Bottom Decoration */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent" />
+    </section>
+  );
 }
