@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
     title: "NeedsFine",
-    description: "진짜 리뷰만 남기는 검증 플랫폼",
+    description: "맛집 검증 플랫폼 니즈파인",
 };
 
 export default function RootLayout({
@@ -13,9 +13,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ko">
-            <body className="overflow-hidden">
-                {children}
-            </body>
+            <body>{children}</body>
         </html>
     );
 }
