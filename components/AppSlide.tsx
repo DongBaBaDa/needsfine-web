@@ -14,7 +14,8 @@ import {
     XCircle,
     ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Button from "@/components/Button";
+
 
 const slides = [
     { id: 1, type: "intro", bgGradient: "from-blue-600 via-purple-700 to-indigo-800" },
